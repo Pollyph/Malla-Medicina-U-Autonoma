@@ -1,113 +1,103 @@
-/* FUENTE BONITA */
-body {
-  font-family: "Inter", sans-serif;
-  background: #e9f5e9; /* verde muy claro */
-  margin: 0;
-  overflow-x: auto;
-  overflow-y: hidden; /* evita scroll vertical */
+/* ------------------------------ */
+/*   ESTILOS VERDE SUCULENTA      */
+/* ------------------------------ */
+
+:root {
+  --verde-sucu: #3ba86c;
+  --verde-sucu-oscuro: #2e8052;
+  --verde-sucu-claro: #6ecf95;
+  --fondo: #e7f8ef;
+  --texto: #0f3d27;
+  --aprobado: #1f5c3e;
+  --bloqueado: #9fcfb4;
+  --font: "Poppins", sans-serif;
 }
 
-/* HEADER */
+body {
+  margin: 0;
+  background: var(--fondo);
+  font-family: var(--font);
+  color: var(--texto);
+  overflow: hidden;
+}
+
 .site-header {
   text-align: center;
-  padding: 15px;
-  background: #a3d9a5; /* verde suculenta */
-  border-bottom: 3px solid #7fcf84;
-}
-
-h1 {
-  margin: 0;
-  color: #1b4d1b;
-  font-weight: 800;
-}
-
-.controls {
-  margin-top: 10px;
-}
-
-.btn {
-  padding: 8px 14px;
-  border: none;
-  background: #6bbf72;
+  padding: 10px;
+  background: var(--verde-sucu);
   color: white;
-  border-radius: 6px;
-  cursor: pointer;
+  font-size: 22px;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
-.btn:hover {
-  background: #5aad63;
+/* ------------------------------- */
+/*   GRID HORIZONTAL SIN SCROLL    */
+/* ------------------------------- */
+
+main {
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn.outline {
-  background: transparent;
-  border: 2px solid #6bbf72;
-  color: #1b4d1b;
-}
-
-.btn.outline:hover {
-  background: #6bbf72;
-  color: white;
-}
-
-/* === MALLA === */
-
-/* Contenedor horizontal */
 .malla-grid {
   display: flex;
-  gap: 25px;
-  padding: 20px;
-  width: max-content;
+  flex-direction: row;
+  gap: 20px;
+  padding: 10px;
+  width: 95vw;
+  height: 85vh;
+  overflow: hidden;
 }
 
-/* Cada semestre como una columna */
-.semestre {
+.columna {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 10px;
-  background: #c5e9c7; /* verde pastel */
-  border-radius: 12px;
-  border: 2px solid #9ddfa0;
-  min-width: 220px;
 }
 
-.semestre h2 {
-  text-align: center;
-  color: #1a5a1a;
-  font-size: 18px;
-  margin: 0;
-  font-weight: 700;
-}
+/* ------------------------------- */
+/*           RAMOS                 */
+/* ------------------------------- */
 
-/* Estilo de cada ramo */
 .ramo {
   padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
+  width: 210px;
   text-align: center;
-  background: #b2e6b4; /* verde suave */
-  border-left: 6px solid #6bbf72;
+  font-size: 15px;
+  background: var(--verde-sucu-claro);
+  border-radius: 10px;
+  border: 2px solid var(--verde-sucu);
+  cursor: pointer;
   transition: 0.25s;
+  font-weight: 600;
 }
 
 .ramo:hover {
-  background: #9fdaa1;
-  transform: scale(1.05);
+  transform: scale(1.04);
+  background: var(--verde-sucu);
+  color: white;
 }
 
-/* Ramo aprobado → tachado + verde apagado */
-.aprobado {
-  background: #88c98b !important;
+/* Bloqueado */
+.ramo.bloqueado {
+  background: var(--bloqueado);
+  border: 2px solid #7fb99b;
+  color: #577868;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.ramo.bloqueado:hover {
+  transform: none;
+}
+
+/* Aprobado */
+.ramo.aprobado {
+  background: var(--aprobado);
+  color: white;
   text-decoration: line-through;
-  opacity: 0.65;
-}
-
-/* Footer */
-.site-footer {
-  text-align: center;
-  padding: 15px;
-  background: #a3d9a5;
-  border-top: 3px solid #7fcf84;
+  opacity: 0.9;
 }
