@@ -1,172 +1,149 @@
-/* -----------------------
-   ESTILOS GENERALES
------------------------ */
+/* 🎨 PALETA DE COLORES PERSONALIZABLE */
+:root {
+  --color-bg: #f8fbff;
+  --color-card: #ffffff;
+  --color-border: #cfd9e6;
+  --color-text: #1a2a33;
+
+  --color-approved: #4caf50;
+  --color-locked: #d9534f;
+  --color-available: #0275d8;
+
+  --color-accent: #0066ff;
+}
+
+/* ------------------------------ */
+/* LAYOUT GENERAL                 */
+/* ------------------------------ */
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f9fc;
   margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Header */
+.site-header {
+  background: var(--color-accent);
   padding: 20px;
-}
-
-/* Contenedor principal */
-#malla {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-/* -----------------------
-   TARJETAS DE SEMESTRE
------------------------ */
-.sem-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.sem-title {
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
 }
 
+/* Botones */
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: white;
+  color: var(--color-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.outline {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+/* ------------------------------ */
+/* MALLA EN HORIZONTAL            */
+/* ------------------------------ */
+
+.malla-grid {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.sem-card {
+  min-width: 350px;
+  background: var(--color-card);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+}
+
+/* Título de semestre */
 .sem-title h2 {
   margin: 0;
-  font-size: 22px;
-  color: #333;
+  font-size: 20px;
+  color: var(--color-accent);
 }
 
-.sem-info {
-  background: #e8eef7;
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #4b5c7a;
-}
-
-/* -----------------------
-   LISTA DE RAMOS
------------------------ */
+/* Contenedor de cursos */
 .courses {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+/* Tarjeta de curso */
 .course {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: left;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 12px 14px;
-  border: 1px solid #dce3f0;
-  border-radius: 10px;
-  background: #ffffff;
   cursor: pointer;
-  transition: 0.25s;
+  transition: 0.2s;
 }
 
+/* Efectos */
 .course:hover {
-  background: #f2f6ff;
+  background: #eef5ff;
 }
 
-/* Nombre + punto */
-.left {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
+/* Dot a la izquierda */
 .dot {
   width: 10px;
   height: 10px;
-  background: #4a90e2;
   border-radius: 50%;
+  background: var(--color-accent);
+  margin-right: 8px;
 }
 
 /* Nombre del ramo */
 .name {
-  font-size: 15px;
-  color: #333;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Estado (aprobado / bloqueado / disponible) */
-.meta {
-  font-size: 13px;
-  color: #666;
-  position: relative;
-}
+/* ------------------------------ */
+/* ESTADOS: aprobado / bloqueado   */
+/* ------------------------------ */
 
-/* Tooltip */
-.tooltip {
-  font-size: 12px;
-  background: #333;
-  color: white;
-  padding: 5px 8px;
-  border-radius: 6px;
-  position: absolute;
-  top: 22px;
-  right: 0;
-  display: none;
-}
-
-.meta:hover .tooltip {
-  display: block;
-}
-
-/* -----------------------
-   ESTADOS DEL CURSO
------------------------ */
-
-/* Aprobado */
 .course.approved {
-  background: #d4f4d4;
-  border-color: #8bd98b;
+  border-color: var(--color-approved);
+  background: #e2f6e2;
 }
 
 .course.approved .name {
   text-decoration: line-through;
-  opacity: 0.6;
+  color: var(--color-approved);
 }
 
 /* Bloqueado */
 .course.locked {
-  background: #f7f7f7;
-  border-color: #d4d4d4;
+  opacity: 0.5;
   cursor: not-allowed;
-  opacity: 0.6;
+  border-color: var(--color-locked);
 }
 
-.course.locked:hover {
-  background: #f7f7f7;
+.course.locked .name {
+  color: var(--color-locked);
 }
 
-/* -----------------------
-   BOTONES SUPERIORES
------------------------ */
-.top-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 25px;
+/* Tooltip (prerrequisitos) */
+.meta {
+  font-size: 12px;
+  color: #666;
 }
-
-.top-buttons button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: #4a90e2;
-  color: white;
-  font-size: 14px;
-  transition: 0.25s;
-}
-
-.top-buttons button:hover {
-  background: #2f6fc1;
-}
-
