@@ -1,149 +1,113 @@
-/* 🎨 PALETA DE COLORES PERSONALIZABLE */
-:root {
-  --color-bg: #f8fbff;
-  --color-card: #ffffff;
-  --color-border: #cfd9e6;
-  --color-text: #1a2a33;
-
-  --color-approved: #4caf50;
-  --color-locked: #d9534f;
-  --color-available: #0275d8;
-
-  --color-accent: #0066ff;
-}
-
-/* ------------------------------ */
-/* LAYOUT GENERAL                 */
-/* ------------------------------ */
-
+/* FUENTE BONITA */
 body {
-  margin: 0;
   font-family: "Inter", sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: #e9f5e9; /* verde muy claro */
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden; /* evita scroll vertical */
 }
 
-/* Header */
+/* HEADER */
 .site-header {
-  background: var(--color-accent);
-  padding: 20px;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  padding: 15px;
+  background: #a3d9a5; /* verde suculenta */
+  border-bottom: 3px solid #7fcf84;
 }
 
-/* Botones */
+h1 {
+  margin: 0;
+  color: #1b4d1b;
+  font-weight: 800;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
 .btn {
   padding: 8px 14px;
-  border-radius: 8px;
   border: none;
-  background: white;
-  color: var(--color-accent);
-  font-weight: 600;
+  background: #6bbf72;
+  color: white;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #5aad63;
 }
 
 .btn.outline {
   background: transparent;
-  color: white;
-  border: 2px solid white;
+  border: 2px solid #6bbf72;
+  color: #1b4d1b;
 }
 
-/* ------------------------------ */
-/* MALLA EN HORIZONTAL            */
-/* ------------------------------ */
+.btn.outline:hover {
+  background: #6bbf72;
+  color: white;
+}
 
+/* === MALLA === */
+
+/* Contenedor horizontal */
 .malla-grid {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   padding: 20px;
-  overflow-x: auto;
+  width: max-content;
 }
 
-.sem-card {
-  min-width: 350px;
-  background: var(--color-card);
-  border-radius: 14px;
-  padding: 16px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-}
-
-/* Título de semestre */
-.sem-title h2 {
-  margin: 0;
-  font-size: 20px;
-  color: var(--color-accent);
-}
-
-/* Contenedor de cursos */
-.courses {
-  margin-top: 10px;
+/* Cada semestre como una columna */
+.semestre {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  padding: 10px;
+  background: #c5e9c7; /* verde pastel */
+  border-radius: 12px;
+  border: 2px solid #9ddfa0;
+  min-width: 220px;
 }
 
-/* Tarjeta de curso */
-.course {
-  background: white;
-  border: 1px solid var(--color-border);
+.semestre h2 {
+  text-align: center;
+  color: #1a5a1a;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Estilo de cada ramo */
+.ramo {
+  padding: 10px;
   border-radius: 10px;
-  padding: 10px 12px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
   cursor: pointer;
-  transition: 0.2s;
-}
-
-/* Efectos */
-.course:hover {
-  background: #eef5ff;
-}
-
-/* Dot a la izquierda */
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  margin-right: 8px;
-}
-
-/* Nombre del ramo */
-.name {
   font-weight: 600;
+  text-align: center;
+  background: #b2e6b4; /* verde suave */
+  border-left: 6px solid #6bbf72;
+  transition: 0.25s;
 }
 
-/* ------------------------------ */
-/* ESTADOS: aprobado / bloqueado   */
-/* ------------------------------ */
-
-.course.approved {
-  border-color: var(--color-approved);
-  background: #e2f6e2;
+.ramo:hover {
+  background: #9fdaa1;
+  transform: scale(1.05);
 }
 
-.course.approved .name {
+/* Ramo aprobado → tachado + verde apagado */
+.aprobado {
+  background: #88c98b !important;
   text-decoration: line-through;
-  color: var(--color-approved);
+  opacity: 0.65;
 }
 
-/* Bloqueado */
-.course.locked {
-  opacity: 0.5;
-  cursor: not-allowed;
-  border-color: var(--color-locked);
-}
-
-.course.locked .name {
-  color: var(--color-locked);
-}
-
-/* Tooltip (prerrequisitos) */
-.meta {
-  font-size: 12px;
-  color: #666;
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 15px;
+  background: #a3d9a5;
+  border-top: 3px solid #7fcf84;
 }
